@@ -1,0 +1,21 @@
+
+<h2>Cars</h2>
+<br />
+     <input ng-model="search" />
+<br />
+<select ng-model="search" type="text">
+        <option ng-repeat="cars in controller.carList|filter:{shortDescription:search}">{{cars.shortDescription}}</option>
+    </select>
+<br />
+<ul>
+    <li ng-repeat="cars in controller.carList|filter:{shortDescription:search}">
+      <button class="btn-primary" ng-click="controller.seeModal(cars.id)">{{cars.shortDescription}}</button>
+    </li>
+</ul>
+<h2>Make</h2>
+<br />
+    <ul>
+        <li ng-repeat="makes in controller.makeList|filter:{name:search}">
+            <button class="btn-primary" ng-click="controller.seeModal(car.id)">{{makes.name}}</button>
+        </li>
+    </ul>
